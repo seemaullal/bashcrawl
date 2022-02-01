@@ -78,6 +78,7 @@ evil wizard.
 
 EOF
         mv ../../../../.chapel ../../../../chapel 2>/dev/null
+        rm ghost
         cat << EOF > treasure
 #!/bin/bash
 if ! grep  --quiet --only-matching emerald <<< \$I; then

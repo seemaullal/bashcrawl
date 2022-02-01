@@ -26,7 +26,7 @@ EOF
 else 
     cat << EOF
 You try to grasp the faintly glowing ring, but it passes
-through your fingers.
+through your fingers. Maybe reading the scroll will give you a clue.
 
 EOF
 
@@ -37,7 +37,7 @@ read RESP
 
 if [ "$RESP" = "y" -o "$RESP" = "Y" ]; then
     cat << EOF
-Try searching opensource.com for hints on how to copy files.
+Try searching the lecture notes for how to copy files.
 
 EOF
     printf "Still stuck? Do you need the answer? y/n  "
