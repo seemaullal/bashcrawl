@@ -24,8 +24,8 @@ if [ "$RESP" = "y" -o "$RESP" = "Y" ]; then
 The taste of a rustic green plant fills your mouth.  It
 warms and strengthens you.
 
-Create a variable for your health points (HP).  You have
-15HP:
+You have 15 health points (HP).  Create a variable for your 
+health points like this:
 
 export HP=15
 
@@ -35,8 +35,8 @@ else
 You weren't born yestermorn.  This potion is probably
 poison.  
 
-Create a variable for your health points (HP).  You have
-10HP:
+You have 10 health points (HP).  Create a variable for your 
+health points like this:
 
 export HP=10
 
@@ -50,7 +50,6 @@ You can check your health at any time:
 echo \$HP
 
 EOF
-mv ../../.chapel ../../chapel 2>/dev/null
 mv ../../.vault ../../vault 2>/dev/null
 mv ../../.scrap ../../scrap 2>/dev/null
 

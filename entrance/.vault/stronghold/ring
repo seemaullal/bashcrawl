@@ -1,5 +1,6 @@
 #!/bin/bash
 #
+#
 # If you are reading this, you have wandered out of bounds
 # and are reading the code that drives the game.
 #
@@ -12,79 +13,49 @@
 # the scrolls. If you're stuck, go to Gitlab and create an issue.
 # We're happy to provide hints.
 # 
-cat << EOF
-Runes, the language of the ancient mystics that once ruled
-this land, are inscribed upon the western wall.
+if [[ -e orb1 && -e orb2 && -e orb3 ]]; then
+    cat << EOF
+You have freed the ring's material form. Add 'ring' to
+your inventory. Inscriptions on the ring indicate that it may provide
+protection from evil spirits.
+
+export I=ring,\$I
 
 EOF
-printf "Do you want to read them? y/n  "
-read RESP
-
-if [ "$RESP" = "y" -o "$RESP" = "Y" ]; then
+    exit
+else 
     cat << EOF
-You recall the lessons of Caitlyn the Green, who taught you
-these ancient letters.  
-
-The runes are instructions on how to summon a portal that
-will allow you to walk through an invisible door contained
-in the wall.
-
-In Bash, a symbolic link (symlink) is a *shortcut* to
-another file or directory.  Create one from this room to the
-adjacent one:
-
-ln -fs ../../../chapel/courtyard/aviary/hall portal
-
-EOF
-else
-    cat << EOF
-You decide it is probably best to leave magickal
-inscriptions as they are.
+You try to grasp the faintly glowing ring, but it passes
+through your fingers.
 
 EOF
 
 fi
 
+printf "Are you stuck? Do you need a hint? y/n  "
+read RESP
 
+if [ "$RESP" = "y" -o "$RESP" = "Y" ]; then
+    cat << EOF
+Try searching opensource.com for hints on how to copy files.
 
+EOF
+    printf "Still stuck? Do you need the answer? y/n  "
+    read RESP
 
+    if [ "$RESP" = "y" -o "$RESP" = "Y" ]; then
+        cat << EOF
+The cp command copies one file to another. Run these
+commands:
 
+cp orb1 orb2
+cp orb1 orb3
 
+And then run this ring script again for confirmation.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+EOF
+    fi
+fi
 
 
 
@@ -364,5 +335,5 @@ fi
 # it means they are applications.
 # Try this:
 #
-# ./spell
+# ./goblet
 

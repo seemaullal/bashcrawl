@@ -52,6 +52,16 @@ roll() {
 }
 
 resolve() {
+    if ! grep  --quiet --only-matching 'sword' <<< $I; then
+        cat << EOF
+You do not have a sword!
+
+Your attacks will be less effective.
+
+EOF
+        let NUM=NUM-20
+    fi
+
     if [[ $MONSTER -eq $NUM ]]; then
         cat << EOF
 You dodge an attack, but you miss your mark as a result.
@@ -67,6 +77,7 @@ A hit! A palpable hit!  You have slain the spirit of the
 evil wizard.
 
 EOF
+        mv ../../../../.chapel ../../../../chapel 2>/dev/null
         cat << EOF > treasure
 #!/bin/bash
 if ! grep  --quiet --only-matching emerald <<< \$I; then
@@ -100,14 +111,25 @@ fi
 EOF
         chmod +x platinum
     else
-        cat << EOF
-Your sword swings harmlessly through the air.  You take 5
-points damage. Deduct this from your HP variable:  
+        if grep  --quiet --only-matching 'ring' <<< $I; then
+            cat << EOF
+Your attack swings harmlessly through the air. You take only 1
+point damage, though, due to your magickal ring.
 
-let HP=HP-5
+let HP=HP-1
+
+EOF
+        let HP=HP-1
+        export HP
+        else
+            cat << EOF
+Your attack swings harmlessly through the air. You take 5 points 
+damage.
 
 EOF
         let HP=HP-5
+        export HP
+        fi
         if [ "$HP" -le 0 ]; then
             cat << EOF
 You suddenly feel cold, the life force draining from your

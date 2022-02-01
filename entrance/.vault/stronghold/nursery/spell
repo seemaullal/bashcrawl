@@ -17,7 +17,9 @@ if [[ -e potion ]]; then
 You have summoned a potion from afar.  You drink it quickly
 and feel a surge of strength.
 
-Add 5 HP to your score.
+Add 5 HP to your score:
+
+let HP=HP+5
 
 EOF
 else
@@ -37,7 +39,8 @@ There are no potions in this room.  But try searching
 starting at the entrance.
 
 Hint: use pwd to determine how many rooms (folders) are
-between you and the entrance.
+between you and the entrance. Or use an absolute path for
+the entrance.
 
 EOF
 

@@ -1,5 +1,5 @@
 
-# You can interact with items in the room (they end with a *)
+# You can interact with items in the room (they show up in green)
 # by running them as a command (a shell script).
 #
 # For example, to collect treasure:
