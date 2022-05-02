@@ -10,5 +10,6 @@
 # If you don't see any colors when you run the `ls` command, try running
 # the following:
 # 
-# alias ls='ls --color'
+# alias ls='ls -G' (Mac OS)
+# alias ls='ls --color' (Windows WSL)
 #
